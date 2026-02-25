@@ -53,10 +53,10 @@ public:
       rclcpp::SystemDefaultsQoS());
 
     // BEGIN STUDENT CODE
-    node_shared->declare_parameter<double>(name + ".T", 1.0);
-    node_shared->declare_parameter<double>(name + ".dt", 0.1);
-    node_shared->declare_parameter<double>(name + ".time_between_states", 3.0);
-    node_shared->declare_parameter<int>(name + ".iterations", 1);
+    T_ = node_shared->declare_parameter<double>(name + ".T", 1.0);
+    dt_ = node_shared->declare_parameter<double>(name + ".dt", 0.1);
+    time_between_states_ = node_shared->declare_parameter<double>(name + ".time_between_states", 3.0);
+    iterations_ = node_shared->declare_parameter<int>(name + ".iterations", 1);
 
     std::vector<double> Q_temp = node_shared->declare_parameter<std::vector<double>>(name+".Q", {1.0, 1.0, 0.3});
     if(Q_temp.size() != 3) {
